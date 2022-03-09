@@ -14,7 +14,7 @@ class WelcomeController: UIViewController {
         super.viewDidLoad()
     }
     
-    @IBAction func unwind(_ segue: UIStoryboardSegue) {
+    @IBAction private func unwind(_ segue: UIStoryboardSegue) {
         print(#line, #function)
     }
 }
