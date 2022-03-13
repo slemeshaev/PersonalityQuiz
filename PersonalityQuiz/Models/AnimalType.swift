@@ -11,4 +11,17 @@ enum AnimalType: Character {
     case cat = "🐱"
     case rabbit = "🐰"
     case turtle = "🐢"
+    
+    var definition: String {
+        switch self {
+        case .dog:
+            return "You are a dog"
+        case .cat:
+            return "You are a cat"
+        case .rabbit:
+            return "You are a rabbit"
+        case .turtle:
+            return "You are a turtle"
+        }
+    }
 }
