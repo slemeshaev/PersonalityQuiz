@@ -13,16 +13,16 @@ struct Question {
     
     static let list: [Question] = [
         Question(text: "What kind of food do you prefer?", type: .single, answers: [
-            Answer(text: "Fish", type: .cat),
-            Answer(text: "Steak", type: .dog),
             Answer(text: "Carrot", type: .rabbit),
+            Answer(text: "Fish", type: .cat),
             Answer(text: "Corn", type: .turtle),
+            Answer(text: "Steak", type: .dog),
         ]),
-        Question(text: "What do you like to do?", type: .multiply, answers: [
-            Answer(text: "Sleep", type: .cat),
+        Question(text: "What do you like to do?", type: .multiple, answers: [
             Answer(text: "Eat", type: .dog),
-            Answer(text: "Read", type: .rabbit),
             Answer(text: "Swim", type: .turtle),
+            Answer(text: "Read", type: .rabbit),
+            Answer(text: "Sleep", type: .cat),
         ]),
         Question(text: "Do you like car trips?", type: .range, answers: [
             Answer(text: "Hate", type: .cat),

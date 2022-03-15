@@ -25,6 +25,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Start">
                                     <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="26"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="startGameTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="U6c-Si-iBb"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What animal are you?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pNp-o4-OzU">
                                 <rect key="frame" x="52.666666666666657" y="333" width="285" height="36"/>
@@ -76,10 +79,11 @@
                             <constraint firstItem="AOo-Iy-DJz" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" constant="-32" id="zfq-F0-Uho"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="IDk-cE-6Ig"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1075" y="-28"/>
+            <point key="canvasLocation" x="-1618" y="-12"/>
         </scene>
     </scenes>
     <resources>
