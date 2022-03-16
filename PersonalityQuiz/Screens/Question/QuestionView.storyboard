@@ -172,8 +172,24 @@
                     </view>
                     <connections>
                         <outlet property="multipleStackView" destination="7gW-a3-z7V" id="PxX-Zx-bul"/>
+                        <outlet property="questionLabel" destination="JOR-j6-3gO" id="iNS-p3-XIS"/>
+                        <outlet property="questionProgressView" destination="f3s-oG-J2G" id="eD6-Kt-Q7d"/>
                         <outlet property="rangedStackView" destination="BzB-Yt-mGt" id="Z7T-j5-8gM"/>
                         <outlet property="singleStackView" destination="3zV-HS-9mK" id="Dsf-MB-yhA"/>
+                        <outletCollection property="singleButtons" destination="4Df-jx-maJ" collectionClass="NSMutableArray" id="Co6-NV-Nh7"/>
+                        <outletCollection property="singleButtons" destination="ROH-h0-7xi" collectionClass="NSMutableArray" id="LRU-9e-otc"/>
+                        <outletCollection property="singleButtons" destination="1rj-x2-iXc" collectionClass="NSMutableArray" id="EgW-dZ-a8r"/>
+                        <outletCollection property="singleButtons" destination="QWx-XT-SSq" collectionClass="NSMutableArray" id="NKf-k0-F9e"/>
+                        <outletCollection property="multipleLabels" destination="H14-8V-47o" collectionClass="NSMutableArray" id="Px6-pB-ZdJ"/>
+                        <outletCollection property="multipleLabels" destination="sG1-SV-U3s" collectionClass="NSMutableArray" id="gFv-la-y0u"/>
+                        <outletCollection property="multipleLabels" destination="Xx5-af-WwS" collectionClass="NSMutableArray" id="8ar-lf-nlJ"/>
+                        <outletCollection property="multipleLabels" destination="Y6J-5r-B7u" collectionClass="NSMutableArray" id="Gre-ti-PMh"/>
+                        <outletCollection property="multipleSwitches" destination="fbs-fk-ezQ" collectionClass="NSMutableArray" id="YNq-wD-Ran"/>
+                        <outletCollection property="multipleSwitches" destination="OEv-xP-ZCB" collectionClass="NSMutableArray" id="AJs-iP-vhr"/>
+                        <outletCollection property="multipleSwitches" destination="xjL-2z-nzp" collectionClass="NSMutableArray" id="XJN-Mi-CEb"/>
+                        <outletCollection property="multipleSwitches" destination="K4I-ox-O3f" collectionClass="NSMutableArray" id="dPL-78-z8A"/>
+                        <outletCollection property="rangedLabels" destination="Lyb-GW-7E4" collectionClass="NSMutableArray" id="Vmz-TP-jYQ"/>
+                        <outletCollection property="rangedLabels" destination="MWi-vA-02t" collectionClass="NSMutableArray" id="bKU-rh-CTW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

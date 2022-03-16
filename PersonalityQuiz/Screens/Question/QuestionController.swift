@@ -10,12 +10,22 @@ import UIKit
 
 class QuestionController: UIViewController {
     // MARK: - IBOutlets
+    @IBOutlet private weak var questionLabel: UILabel!
+    @IBOutlet private var singleButtons: [UIButton]!
+    
+    @IBOutlet private var multipleLabels: [UILabel]!
+    @IBOutlet private var multipleSwitches: [UISwitch]!
+    
+    @IBOutlet private var rangedLabels: [UILabel]!
+    
     @IBOutlet private weak var singleStackView: UIStackView!
     @IBOutlet private weak var multipleStackView: UIStackView!
     @IBOutlet private weak var rangedStackView: UIStackView!
     
+    @IBOutlet private weak var questionProgressView: UIProgressView!
+    
     // MARK: - Properties
-    private var questionIndex = 2
+    private var questionIndex = 0
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -29,9 +39,13 @@ class QuestionController: UIViewController {
             stackView?.isHidden = true
         }
         
-        navigationItem.title = "Question #\(questionIndex + 1)"
-        
         let question = Question.list[questionIndex]
+        let answers = question.answers
+        let totalProgress = Float(questionIndex) / Float(Question.list.count)
+        
+        navigationItem.title = "Question #\(questionIndex + 1)"
+        questionLabel.text = question.text
+        questionProgressView.setProgress(totalProgress, animated: true)
         
         switch question.type {
         case .single:
