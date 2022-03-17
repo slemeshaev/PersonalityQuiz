@@ -25,7 +25,7 @@ class QuestionController: UIViewController {
     @IBOutlet private weak var questionProgressView: UIProgressView!
     
     // MARK: - Properties
-    private var questionIndex = 0
+    private var questionIndex = 2
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -49,14 +49,44 @@ class QuestionController: UIViewController {
         
         switch question.type {
         case .single:
-            singleStackView.isHidden = false
+            updateSingleStackView()
         case .multiple:
-            multipleStackView.isHidden = false
+            updateMultipleStackView()
         case .range:
-            rangedStackView.isHidden = false
+            updateRangedStackView()
         }
         
         // TODO: change to segue to results screen
         questionIndex = (questionIndex + 1) % Question.list.count
+        
+        func updateSingleStackView() {
+            singleStackView.isHidden = false
+            
+            for button in singleButtons {
+                button.setTitle(nil, for: [])
+            }
+            
+            for (button, answer) in zip(singleButtons, answers) {
+                button.setTitle(answer.text, for: [])
+            }
+        }
+        
+        func updateMultipleStackView() {
+            multipleStackView.isHidden = false
+            
+            for label in multipleLabels {
+                label.text = nil
+            }
+            
+            for (label, answer) in zip(multipleLabels, answers) {
+                label.text = answer.text
+            }
+        }
+        
+        func updateRangedStackView() {
+            rangedStackView.isHidden = false
+            rangedLabels.first?.text = answers.first?.text
+            rangedLabels.last?.text = answers.last?.text
+        }
     }
 }
