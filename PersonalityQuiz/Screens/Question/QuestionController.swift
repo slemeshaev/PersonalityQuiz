@@ -25,12 +25,32 @@ class QuestionController: UIViewController {
     @IBOutlet private weak var questionProgressView: UIProgressView!
     
     // MARK: - Properties
-    private var questionIndex = 2
+    private var questionIndex = 0
+    private var chosenAnswers = [Answer]() {
+        didSet {
+            print(chosenAnswers)
+        }
+    }
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
+    }
+    
+    // MARK: - IBActions
+    @IBAction private func singleButtonTapped(_ sender: UIButton) {
+        let answers = Question.list[questionIndex].answers
+        let index = sender.tag
+        
+        guard 0 <= index && index < answers.count else {
+            return
+        }
+        
+        let answer = answers[index]
+        chosenAnswers.append(answer)
+        
+        nextQuestion()
     }
     
     // MARK: - Private
@@ -56,14 +76,12 @@ class QuestionController: UIViewController {
             updateRangedStackView()
         }
         
-        // TODO: change to segue to results screen
-        questionIndex = (questionIndex + 1) % Question.list.count
-        
         func updateSingleStackView() {
             singleStackView.isHidden = false
             
-            for button in singleButtons {
+            for (index, button) in singleButtons.enumerated() {
                 button.setTitle(nil, for: [])
+                button.tag = index
             }
             
             for (button, answer) in zip(singleButtons, answers) {
@@ -88,5 +106,10 @@ class QuestionController: UIViewController {
             rangedLabels.first?.text = answers.first?.text
             rangedLabels.last?.text = answers.last?.text
         }
+    }
+    
+    private func nextQuestion() {
+        // TODO: change to segue to results screen
+        questionIndex = (questionIndex + 1) % Question.list.count
     }
 }

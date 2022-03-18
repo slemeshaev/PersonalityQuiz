@@ -132,21 +132,33 @@
                                         <rect key="frame" x="0.0" y="0.0" width="24" height="14"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="singleButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="N9N-it-YvQ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ROH-h0-7xi">
                                         <rect key="frame" x="0.0" y="29" width="24" height="14"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="singleButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="kS1-Y3-bf8"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1rj-x2-iXc">
                                         <rect key="frame" x="0.0" y="58" width="24" height="14"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="singleButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="n0f-DQ-3hh"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QWx-XT-SSq">
                                         <rect key="frame" x="0.0" y="87" width="24" height="14"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="singleButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="fK3-MK-scX"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
