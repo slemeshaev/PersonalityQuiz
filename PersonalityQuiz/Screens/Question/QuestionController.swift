@@ -26,6 +26,15 @@ class QuestionController: UIViewController {
     
     // MARK: - Properties
     private var questionIndex = 0
+    
+    private var currentAnswers: [Answer] {
+        currentQuestion.answers
+    }
+    
+    private var currentQuestion: Question {
+        Question.list[questionIndex]
+    }
+    
     private var chosenAnswers = [Answer]() {
         didSet {
             print(chosenAnswers)
@@ -40,16 +49,25 @@ class QuestionController: UIViewController {
     
     // MARK: - IBActions
     @IBAction private func singleButtonTapped(_ sender: UIButton) {
-        let answers = Question.list[questionIndex].answers
         let index = sender.tag
         
-        guard 0 <= index && index < answers.count else {
+        guard 0 <= index && index < currentAnswers.count else {
             return
         }
         
-        let answer = answers[index]
+        let answer = currentAnswers[index]
         chosenAnswers.append(answer)
         
+        nextQuestion()
+    }
+    
+    @IBAction private func multipleButtonTapped(_ sender: UIButton) {
+        for (index, `switch`) in multipleSwitches.enumerated() {
+            if `switch`.isOn && index < currentAnswers.count {
+                let answer = currentAnswers[index]
+                chosenAnswers.append(answer)
+            }
+        }
         nextQuestion()
     }
     
@@ -59,15 +77,13 @@ class QuestionController: UIViewController {
             stackView?.isHidden = true
         }
         
-        let question = Question.list[questionIndex]
-        let answers = question.answers
         let totalProgress = Float(questionIndex) / Float(Question.list.count)
         
         navigationItem.title = "Question #\(questionIndex + 1)"
-        questionLabel.text = question.text
+        questionLabel.text = currentQuestion.text
         questionProgressView.setProgress(totalProgress, animated: true)
         
-        switch question.type {
+        switch currentQuestion.type {
         case .single:
             updateSingleStackView()
         case .multiple:
@@ -75,41 +91,42 @@ class QuestionController: UIViewController {
         case .range:
             updateRangedStackView()
         }
+    }
+    
+    private func updateSingleStackView() {
+        singleStackView.isHidden = false
         
-        func updateSingleStackView() {
-            singleStackView.isHidden = false
-            
-            for (index, button) in singleButtons.enumerated() {
-                button.setTitle(nil, for: [])
-                button.tag = index
-            }
-            
-            for (button, answer) in zip(singleButtons, answers) {
-                button.setTitle(answer.text, for: [])
-            }
+        for (index, button) in singleButtons.enumerated() {
+            button.setTitle(nil, for: [])
+            button.tag = index
         }
         
-        func updateMultipleStackView() {
-            multipleStackView.isHidden = false
-            
-            for label in multipleLabels {
-                label.text = nil
-            }
-            
-            for (label, answer) in zip(multipleLabels, answers) {
-                label.text = answer.text
-            }
+        for (button, answer) in zip(singleButtons, currentAnswers) {
+            button.setTitle(answer.text, for: [])
+        }
+    }
+    
+    private func updateMultipleStackView() {
+        multipleStackView.isHidden = false
+        
+        for label in multipleLabels {
+            label.text = nil
         }
         
-        func updateRangedStackView() {
-            rangedStackView.isHidden = false
-            rangedLabels.first?.text = answers.first?.text
-            rangedLabels.last?.text = answers.last?.text
+        for (label, answer) in zip(multipleLabels, currentAnswers) {
+            label.text = answer.text
         }
+    }
+    
+    private func updateRangedStackView() {
+        rangedStackView.isHidden = false
+        rangedLabels.first?.text = currentAnswers.first?.text
+        rangedLabels.last?.text = currentAnswers.last?.text
     }
     
     private func nextQuestion() {
         // TODO: change to segue to results screen
         questionIndex = (questionIndex + 1) % Question.list.count
+        updateUI()
     }
 }
