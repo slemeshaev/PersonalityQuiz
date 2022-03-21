@@ -17,6 +17,7 @@ class QuestionController: UIViewController {
     @IBOutlet private var multipleSwitches: [UISwitch]!
     
     @IBOutlet private var rangedLabels: [UILabel]!
+    @IBOutlet private var rangedSlider: UISlider!
     
     @IBOutlet private weak var singleStackView: UIStackView!
     @IBOutlet private weak var multipleStackView: UIStackView!
@@ -71,6 +72,15 @@ class QuestionController: UIViewController {
         nextQuestion()
     }
     
+    @IBAction private func rangedButtonTapped(_ sender: UIButton) {
+        let index = Int(round(rangedSlider.value * Float(currentAnswers.count - 1)))
+        
+        if index < currentAnswers.count {
+            let answer = currentAnswers[index]
+            chosenAnswers.append(answer)
+        }
+    }
+    
     // MARK: - Private
     private func updateUI() {
         for stackView in [singleStackView, multipleStackView, rangedStackView] {
@@ -81,6 +91,7 @@ class QuestionController: UIViewController {
         
         navigationItem.title = "Question #\(questionIndex + 1)"
         questionLabel.text = currentQuestion.text
+        rangedSlider.maximumValue = 0.9999
         questionProgressView.setProgress(totalProgress, animated: true)
         
         switch currentQuestion.type {
