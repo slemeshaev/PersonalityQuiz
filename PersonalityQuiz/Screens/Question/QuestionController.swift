@@ -79,6 +79,7 @@ class QuestionController: UIViewController {
             let answer = currentAnswers[index]
             chosenAnswers.append(answer)
         }
+        nextQuestion()
     }
     
     // MARK: - Private
@@ -136,8 +137,19 @@ class QuestionController: UIViewController {
     }
     
     private func nextQuestion() {
-        // TODO: change to segue to results screen
-        questionIndex = (questionIndex + 1) % Question.list.count
-        updateUI()
+        questionIndex = questionIndex + 1
+        
+        if questionIndex < Question.list.count {
+            updateUI()
+        } else {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "AnswerView", bundle: nil)
+            
+            let answerVC = storyBoard.instantiateViewController(identifier: "AnswerVC", creator: { coder -> AnswerController? in
+                AnswerController(coder, self.chosenAnswers)
+            })
+            
+            answerVC.modalPresentationStyle = .fullScreen
+            present(answerVC, animated: true, completion: nil)
+        }
     }
 }
