@@ -144,7 +144,8 @@ class QuestionController: UIViewController {
         } else {
             let storyBoard: UIStoryboard = UIStoryboard(name: "AnswerView", bundle: nil)
             
-            let answerVC = storyBoard.instantiateViewController(identifier: "AnswerVC", creator: { coder -> AnswerController? in
+            let answerVC = storyBoard.instantiateViewController(identifier: "AnswerVC", creator: {
+                coder -> AnswerController? in
                 AnswerController(coder, self.chosenAnswers)
             })
             

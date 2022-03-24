@@ -16,6 +16,7 @@ class AnswerController: UIViewController {
     init?(_ coder: NSCoder, _ answers: [Answer]) {
         self.answers = answers
         super.init(coder: coder)
+        calculatePersonalityResult()
     }
     
     required init?(coder: NSCoder) {
@@ -24,5 +25,13 @@ class AnswerController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    // MARK: - Private
+    private func calculatePersonalityResult() {
+        let frequencyOfAnswers = answers.reduce(into: [:]) { counts, answers in
+            counts[answers.type, default: 0] += 1
+        }
+        print(#line, frequencyOfAnswers)
     }
 }
