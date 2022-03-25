@@ -16,7 +16,6 @@ class AnswerController: UIViewController {
     init?(_ coder: NSCoder, _ answers: [Answer]) {
         self.answers = answers
         super.init(coder: coder)
-        calculatePersonalityResult()
     }
     
     required init?(coder: NSCoder) {
@@ -25,6 +24,7 @@ class AnswerController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        calculatePersonalityResult()
     }
     
     // MARK: - Private
@@ -32,6 +32,9 @@ class AnswerController: UIViewController {
         let frequencyOfAnswers = answers.reduce(into: [:]) { counts, answers in
             counts[answers.type, default: 0] += 1
         }
-        print(#line, frequencyOfAnswers)
+        
+        let frequencyOfAnswersSorted = frequencyOfAnswers.sorted { $0.value > $1.value }
+        let mostCommonAnswer = frequencyOfAnswersSorted.first?.key
+        print("### MostCommonAnswer: \(String(describing: mostCommonAnswer))")
     }
 }
