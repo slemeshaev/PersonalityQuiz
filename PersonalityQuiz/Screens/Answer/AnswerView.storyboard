@@ -33,12 +33,25 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yD1-0D-SsM">
+                                <rect key="frame" x="107" y="574.5" width="200" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="RnT-yC-JxL"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Finish test"/>
+                                <connections>
+                                    <action selector="finishTestTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="SKc-nD-xLr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="yD1-0D-SsM" firstAttribute="top" secondItem="Mxj-Hu-e3r" secondAttribute="bottom" constant="70" id="T3Q-gK-pSz"/>
                             <constraint firstItem="Mxj-Hu-e3r" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="Zim-Gr-O36"/>
                             <constraint firstItem="Mxj-Hu-e3r" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="b6c-D6-Osg"/>
+                            <constraint firstItem="yD1-0D-SsM" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="iPV-2M-sud"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Mxj-Hu-e3r" secondAttribute="trailing" constant="20" id="jt4-Ob-CHH"/>
                         </constraints>
                     </view>
@@ -49,6 +62,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="animalLabel" destination="D5l-qM-8i4" id="Sdp-6v-jIs"/>
+                        <outlet property="descriptionLabel" destination="fxm-cR-lh5" id="LO4-Oi-iEN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="7Gs-N5-It1" userLabel="Exit" sceneMemberID="exit"/>

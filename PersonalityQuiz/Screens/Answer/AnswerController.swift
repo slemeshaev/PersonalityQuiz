@@ -9,8 +9,12 @@
 import UIKit
 
 class AnswerController: UIViewController {
+    // MARK: - IBOutlets
+    @IBOutlet private weak var animalLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
+    
     // MARK: - Properties
-    let answers: [Answer]
+    private let answers: [Answer]
     
     // MARK: - Init
     init?(_ coder: NSCoder, _ answers: [Answer]) {
@@ -27,14 +31,27 @@ class AnswerController: UIViewController {
         calculatePersonalityResult()
     }
     
+    // MARK: - IBActions
+    @IBAction private func finishTestTapped(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "WelcomeView", bundle: nil)
+        let welcomeVC = storyBoard.instantiateViewController(withIdentifier: "WelcomeVC") as! WelcomeController
+        welcomeVC.modalPresentationStyle = .fullScreen
+        present(welcomeVC, animated: true, completion: nil)
+    }
+    
     // MARK: - Private
     private func calculatePersonalityResult() {
         let frequencyOfAnswers = answers.reduce(into: [:]) { counts, answers in
             counts[answers.type, default: 0] += 1
         }
         
-        let frequencyOfAnswersSorted = frequencyOfAnswers.sorted { $0.value > $1.value }
-        let mostCommonAnswer = frequencyOfAnswersSorted.first?.key
-        print("### MostCommonAnswer: \(String(describing: mostCommonAnswer))")
+        if let mostCommonAnswer = frequencyOfAnswers.sorted(by: { $0.value > $1.value }).first?.key {
+            updateUI(with: mostCommonAnswer)
+        }
+    }
+    
+    private func updateUI(with animal: AnimalType) {
+        animalLabel.text = "You are \(animal.rawValue)!"
+        descriptionLabel.text = animal.definition
     }
 }
