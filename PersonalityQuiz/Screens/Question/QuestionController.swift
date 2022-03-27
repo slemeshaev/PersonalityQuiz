@@ -19,6 +19,7 @@ class QuestionController: UIViewController {
     
     @IBOutlet private var multipleLabels: [UILabel]!
     @IBOutlet private var multipleSwitches: [UISwitch]!
+    @IBOutlet private weak var multipleAnswerButton: UIButton!
     
     @IBOutlet private var rangedLabels: [UILabel]!
     @IBOutlet private var rangedSlider: UISlider!
@@ -84,6 +85,16 @@ class QuestionController: UIViewController {
         nextQuestion()
     }
     
+    @IBAction private func turnSwitchTapped(_ sender: UISwitch) {
+        for `switch` in multipleSwitches {
+            if `switch`.isOn {
+                multipleAnswerButton.isEnabled = true; break
+            } else {
+                multipleAnswerButton.isEnabled = false
+            }
+        }
+    }
+    
     // MARK: - Private
     private func updateUI() {
         for stackView in [singleStackView, multipleStackView, rangedStackView] {
@@ -124,6 +135,7 @@ class QuestionController: UIViewController {
     
     private func updateMultipleStackView() {
         multipleStackView.isHidden = false
+        multipleAnswerButton.isEnabled = false
         
         for label in multipleLabels {
             label.text = nil

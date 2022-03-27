@@ -74,6 +74,9 @@
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fbs-fk-ezQ">
                                                 <rect key="frame" x="319" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="turnSwitchTapped:" destination="Y6W-OH-hqX" eventType="valueChanged" id="ujR-gC-dXJ"/>
+                                                </connections>
                                             </switch>
                                         </subviews>
                                     </stackView>
@@ -88,6 +91,9 @@
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OEv-xP-ZCB">
                                                 <rect key="frame" x="319" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="turnSwitchTapped:" destination="Y6W-OH-hqX" eventType="valueChanged" id="Yxu-oe-2Ei"/>
+                                                </connections>
                                             </switch>
                                         </subviews>
                                     </stackView>
@@ -102,6 +108,9 @@
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xjL-2z-nzp">
                                                 <rect key="frame" x="319" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="turnSwitchTapped:" destination="Y6W-OH-hqX" eventType="valueChanged" id="vt7-hV-Gfj"/>
+                                                </connections>
                                             </switch>
                                         </subviews>
                                     </stackView>
@@ -116,6 +125,9 @@
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="K4I-ox-O3f">
                                                 <rect key="frame" x="319" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="turnSwitchTapped:" destination="Y6W-OH-hqX" eventType="valueChanged" id="Pgs-oh-thP"/>
+                                                </connections>
                                             </switch>
                                         </subviews>
                                     </stackView>
@@ -189,6 +201,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="multipleAnswerButton" destination="OPF-Kv-Ms3" id="zrL-nk-hav"/>
                         <outlet property="multipleStackView" destination="7gW-a3-z7V" id="PxX-Zx-bul"/>
                         <outlet property="questionLabel" destination="JOR-j6-3gO" id="iNS-p3-XIS"/>
                         <outlet property="questionProgressView" destination="f3s-oG-J2G" id="eD6-Kt-Q7d"/>
@@ -213,7 +226,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-42" y="10"/>
+            <point key="canvasLocation" x="-55" y="30"/>
         </scene>
     </scenes>
     <resources>
