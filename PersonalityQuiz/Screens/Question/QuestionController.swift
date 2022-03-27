@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol QuestionControllerDelegate: AnyObject {
+    func questionControllerDidGetResult(answers: [Answer])
+}
+
 class QuestionController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet private weak var questionLabel: UILabel!
@@ -36,11 +40,9 @@ class QuestionController: UIViewController {
         Question.list[questionIndex]
     }
     
-    private var chosenAnswers = [Answer]() {
-        didSet {
-            print(chosenAnswers)
-        }
-    }
+    private var chosenAnswers = [Answer]()
+    
+    weak var delegate: QuestionControllerDelegate?
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -91,6 +93,8 @@ class QuestionController: UIViewController {
         let totalProgress = Float(questionIndex) / Float(Question.list.count)
         
         navigationItem.title = "Question #\(questionIndex + 1)"
+        navigationItem.hidesBackButton = true
+        
         questionLabel.text = currentQuestion.text
         rangedSlider.maximumValue = 0.9999
         questionProgressView.setProgress(totalProgress, animated: true)
@@ -142,15 +146,7 @@ class QuestionController: UIViewController {
         if questionIndex < Question.list.count {
             updateUI()
         } else {
-            let storyBoard: UIStoryboard = UIStoryboard(name: "AnswerView", bundle: nil)
-            
-            let answerVC = storyBoard.instantiateViewController(identifier: "AnswerVC", creator: {
-                coder -> AnswerController? in
-                AnswerController(coder, self.chosenAnswers)
-            })
-            
-            answerVC.modalPresentationStyle = .fullScreen
-            present(answerVC, animated: true, completion: nil)
+            delegate?.questionControllerDidGetResult(answers: chosenAnswers)
         }
     }
 }

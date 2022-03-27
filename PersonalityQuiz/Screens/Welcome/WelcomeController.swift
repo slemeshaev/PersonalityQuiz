@@ -8,22 +8,19 @@
 
 import UIKit
 
+protocol WelcomeControllerDelegate: AnyObject {
+    func welcomeControllerDidStartGame()
+}
+
 class WelcomeController: UIViewController {
     
-    // MARK: - Lifecycle
+    weak var delegate: WelcomeControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    // MARK: - IBActions
     @IBAction private func startGameTapped(_ sender: UIButton) {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "QuestionView", bundle: nil)
-        let questionVC = storyBoard.instantiateViewController(withIdentifier: "QuestionVC") as! QuestionController
-        questionVC.modalPresentationStyle = .fullScreen
-        present(questionVC, animated: true, completion: nil)
-    }
-    
-    @IBAction private func unwind(_ segue: UIStoryboardSegue) {
-        print(#line, #function)
+        delegate?.welcomeControllerDidStartGame()
     }
 }

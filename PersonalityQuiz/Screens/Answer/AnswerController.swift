@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol AnswerControllerDelegate: AnyObject {
+    func answerControllerDidFinishGame()
+}
+
 class AnswerController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet private weak var animalLabel: UILabel!
@@ -15,6 +19,8 @@ class AnswerController: UIViewController {
     
     // MARK: - Properties
     private let answers: [Answer]
+    
+    weak var delegate: AnswerControllerDelegate?
     
     // MARK: - Init
     init?(_ coder: NSCoder, _ answers: [Answer]) {
@@ -26,17 +32,16 @@ class AnswerController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.hidesBackButton = true
         calculatePersonalityResult()
     }
     
     // MARK: - IBActions
     @IBAction private func finishTestTapped(_ sender: Any) {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "WelcomeView", bundle: nil)
-        let welcomeVC = storyBoard.instantiateViewController(withIdentifier: "WelcomeVC") as! WelcomeController
-        welcomeVC.modalPresentationStyle = .fullScreen
-        present(welcomeVC, animated: true, completion: nil)
+        delegate?.answerControllerDidFinishGame()
     }
     
     // MARK: - Private

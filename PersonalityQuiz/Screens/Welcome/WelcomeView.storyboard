@@ -11,27 +11,27 @@
         <!--Welcome Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="WelcomeVC" id="Y6W-OH-hqX" customClass="WelcomeController" customModule="PersonalityQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomeView" id="Y6W-OH-hqX" customClass="WelcomeController" customModule="PersonalityQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KuE-NQ-T7k">
-                                <rect key="frame" x="95" y="399" width="200" height="46"/>
+                                <rect key="frame" x="95" y="399.66666666666669" width="200" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="qGH-e1-JWg"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Start">
-                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="26"/>
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="26"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="startGameTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="U6c-Si-iBb"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What animal are you?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pNp-o4-OzU">
-                                <rect key="frame" x="52.666666666666657" y="333" width="285" height="36"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
+                                <rect key="frame" x="55.333333333333343" y="336" width="279.33333333333326" height="33.666666666666686"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="28"/>
                                 <color key="textColor" red="0.16057610510000001" green="0.16426306960000001" blue="0.18914902210000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -83,7 +83,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1618" y="-12"/>
+            <point key="canvasLocation" x="-1757" y="8"/>
         </scene>
     </scenes>
     <resources>

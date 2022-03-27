@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66601B1927EEF74700C5796F /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66601B1827EEF74700C5796F /* NavigationRouter.swift */; };
+		66601B1B27EF22ED00C5796F /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66601B1A27EF22ED00C5796F /* UIViewController.swift */; };
 		66629E2E279DDC4B00A180AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66629E2D279DDC4B00A180AD /* AppDelegate.swift */; };
 		66629E30279DDC4B00A180AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66629E2F279DDC4B00A180AD /* SceneDelegate.swift */; };
 		66629E37279DDC4D00A180AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66629E36279DDC4D00A180AD /* Assets.xcassets */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		66601B1827EEF74700C5796F /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
+		66601B1A27EF22ED00C5796F /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		66629E2A279DDC4B00A180AD /* PersonalityQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonalityQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66629E2D279DDC4B00A180AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66629E2F279DDC4B00A180AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +99,8 @@
 			children = (
 				66629E2D279DDC4B00A180AD /* AppDelegate.swift */,
 				66629E2F279DDC4B00A180AD /* SceneDelegate.swift */,
+				66601B1827EEF74700C5796F /* NavigationRouter.swift */,
+				66601B1A27EF22ED00C5796F /* UIViewController.swift */,
 				66629E36279DDC4D00A180AD /* Assets.xcassets */,
 				66629E3B279DDC4D00A180AD /* Info.plist */,
 			);
@@ -224,11 +230,13 @@
 				66629E44279DDE1100A180AD /* WelcomeController.swift in Sources */,
 				66629E2E279DDC4B00A180AD /* AppDelegate.swift in Sources */,
 				66629E30279DDC4B00A180AD /* SceneDelegate.swift in Sources */,
+				66601B1B27EF22ED00C5796F /* UIViewController.swift in Sources */,
 				669C15F827D92D4C0040D106 /* Question.swift in Sources */,
 				669D182827A4792100A520C9 /* QuestionController.swift in Sources */,
 				66E52AE427BD5268009DECB6 /* AnswerController.swift in Sources */,
 				669C15FA27D92E9E0040D106 /* ResponseType.swift in Sources */,
 				669C15FC27D92FB90040D106 /* Answer.swift in Sources */,
+				66601B1927EEF74700C5796F /* NavigationRouter.swift in Sources */,
 				669C15FE27D930120040D106 /* AnimalType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
